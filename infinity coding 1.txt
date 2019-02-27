@@ -1,0 +1,57 @@
+int main()
+{
+    printf("motor position");
+    cmpc(0);
+    while(gmpc(0)< 2950)
+    {
+        motor(0, 75);
+        motor(1, 75);
+    }
+    ao();
+    msleep(200);
+    while(gmpc(0)>0)
+    {
+        motor(0, -75);
+        motor(1, -75);
+    }
+    ao();
+    
+    
+#include <kipr/botball.h>
+
+int main()
+{
+  enable_servos();
+    
+  set_servo_position(1,1900);
+  msleep(10); 
+  set_servo_position(2,0);
+  msleep(10);
+  set_servo_position(1,1500);
+  msleep(10);
+  set_servo_position(2,400);
+  msleep(10);
+  disable_servos(); 
+  return 0;
+}
+
+int main()
+{
+    printf("range");
+    while(analog(1) < 2700)
+    {
+        motor(0,75);
+        motor(1,75);
+    }
+    return 0;
+}
+
+void turn_left();
+void turn_right();
+
+
+int main()
+{
+    turn_left();
+    turn_right();
+    return 0;
